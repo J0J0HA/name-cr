@@ -160,5 +160,9 @@ def get_details(fullid: str):
     return {"success": True, "profile": user_id}
 
 
+def create_app():
+    return app
+
+
 if __name__ == "__main__":
     app.run(port=int(sys.argv[-1]))
