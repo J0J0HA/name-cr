@@ -1,0 +1,120 @@
+/* Color Scheme */
+:root {
+    --font-color: #333;
+    --light-font-color: #4d4d4d;
+    --bg-color: #f4f4f4;
+    --dark-bg-color: #dbdbdb;
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --font-color: #f4f4f4;
+        --light-font-color: #cecece;
+        --bg-color: #333;
+        --dark-bg-color: #444;
+        color-scheme: dark light;
+    }
+}
+
+/* Global Styles */
+
+:root {
+    color: var(--font-color);
+    background-color: var(--bg-color);
+
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: calc(100dvw - 40px);
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+h1>a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+h1>a:hover {
+    text-decoration:underline;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    padding: 0 20px;
+    width: calc(100dvw - 40px);
+    max-width: 750px;
+}
+
+#user-search {
+    width: 110px;
+    transition: width 0.5s;
+}
+
+.search:focus-within #user-search {
+    width: 175px;
+}
+
+input[type="text"],
+input[type="search"] {
+    padding: 5px;
+    font-size: 16px;
+
+    background-color: var(--dark-bg-color);
+
+    border: 1px solid var(--font-color);
+    border-radius: 5px;
+}
+
+input[type="text"]:hover,
+input[type="search"]:hover {
+    background-color: var(--bg-color);
+}
+
+button,
+input[type=submit] {
+    padding: 5px 10px;
+    font-size: 16px;
+
+    background-color: var(--dark-bg-color);
+    color: var(--font-color);
+
+    border: 1px solid var(--font-color);
+    border-radius: 5px;
+}
+
+button:hover,
+input[type=submit]:hover {
+    background-color: var(--font-color);
+    color: var(--bg-color);
+}
+
+button:disabled,
+input[type=submit]:disabled {
+    background-color: var(--bg-color);
+    color: var(--light-font-color);
+}

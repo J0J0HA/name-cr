@@ -1,0 +1,32 @@
+.player {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.player>.render {
+    flex: 1 1 30%;
+    min-width: 150px;
+}
+
+.player>.details {
+    flex: 1 1 60%;
+}
+
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detail-table td {
+    padding: 10px;
+    border: 1px solid var(--font-color);
+}
+
+.render {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

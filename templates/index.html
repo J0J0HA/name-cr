@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NameCR</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('user-search');
+            const searchSubmit = document.getElementById('search-submit');
+
+            searchInput.addEventListener('input', () => {
+                searchSubmit.disabled = searchInput.value.length === 0;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo"><a href="{{ url_for('index') }}">NameCR</a></h1>
+        <form class="search" method="get" action="{{ url_for('search') }}">
+            <input type="search" name="q" id="user-search" placeholder="Search Users">
+            <input type="submit" id="search-submit" value="Search" disabled>
+        </form>
+    </header>
+    <main>
+        <section class="greet">
+            <h2>NameCR</h2>
+            <p>A better name is to be evaluated.</p>
+        </section>
+        <section class="content">
+            <p>
+                You can search a user by their ID or username.
+                <br>
+                (Searching by display name is not yet possible.)
+                <br>
+                <br>
+                See <a
+                    href="{{ url_for('player_profile_by_name', provider='itch', username='finalforeach') }}">finalforeach's
+                    entry</a>!
+            </p>
+            <br>
+            <h3>API</h3>
+            <p>
+                Please be kind to the API!<br><br>
+                To get a user's profile:
+                <pre><code>GET {{ url_for('get_details', fullid='USER_ID') }}</code></pre>
+                <a href="{{ url_for('get_details', fullid='itch:9666444') }}">Example</a>
+                <br>
+                <br>
+                To get a user's ID by his username (not display name!):
+                <pre><code>GET {{ url_for('get_id', fullname='USER_NAME') }}</code></pre>
+                <a href="{{ url_for('get_id', fullname='itch:finalforeach') }}">Example</a>
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+.greet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15dvh;
+    margin-bottom: 15dvh;
+}
+
+.greet h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 48px;
+}
