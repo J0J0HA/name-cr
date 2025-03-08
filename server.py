@@ -1,6 +1,7 @@
 import os
 import re
 from functools import lru_cache
+import sys
 
 import dotenv
 import requests
@@ -63,7 +64,8 @@ class Itch:
 @app.route("/")
 def index():
     return render_template("index.html")
-    
+
+
 @app.route("/search")
 def search():
     query = request.args.get("q")
@@ -159,4 +161,4 @@ def get_details(fullid: str):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=int(sys.argv[-1]))
